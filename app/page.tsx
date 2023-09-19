@@ -1,8 +1,10 @@
+import Wrapper from "@/components/layout/Wrapper";
+import Seo from "@/components/seo/Seo";
+
 export default function Home() {
   return (
-    <>
-      {/* Wrapper */}
-      {/* Seo */}
+    <Wrapper>
+      <Seo pageTitle="Home" />
       {/* Header */}
       {/* Banner */}
       {/* Featured Area */}
@@ -14,7 +16,6 @@ export default function Home() {
       {/* best seller products */}
       {/* brands */}
       {/* footer */}
-      {/* Wrapper */}
-    </>
+    </Wrapper>
   )
 }

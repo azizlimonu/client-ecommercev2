@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getLocalStorage, setLocalStorage } from '@/libs/LocalStorage';
 import { notifyError, notifySuccess } from "@/libs/Toast";
-import { Product } from "@/libs/types";
+import { Product } from "@/libs/Types";
 
 interface CartProduct extends Product {
   orderQuantity: number;
@@ -79,7 +79,7 @@ const cartSlice = createSlice({
       });
       setLocalStorage("cart_products", state.cart_products);
     },
-    get_cart_products: (state, { payload }) => {
+    get_cart_products: (state) => {
       state.cart_products = getLocalStorage("cart_products");
     },
     remove_product: (state, { payload }) => {
@@ -89,7 +89,7 @@ const cartSlice = createSlice({
       setLocalStorage("cart_products", state.cart_products);
       notifyError(`${payload.title} Remove from cart`);
     },
-    initialOrderQuantity: (state, { payload }) => {
+    initialOrderQuantity: (state) => {
       state.orderQuantity = 1;
     },
     clearCart: (state, { payload }) => {

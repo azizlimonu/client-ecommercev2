@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getLocalStorage, setLocalStorage } from "@/libs/LocalStorage";
 import { notifyError, notifySuccess } from "@/libs/Toast";
-import { Product } from "@/libs/types";
+import { Product } from "@/libs/Types";
 
 interface compareState {
   compareItems: Product[];
@@ -37,7 +37,7 @@ export const compareSlice = createSlice({
       setLocalStorage("compare_items", state.compareItems);
       notifyError(`${payload.title} removed from compare`);
     },
-    get_compare_products: (state, { payload }) => {
+    get_compare_products: (state) => {
       state.compareItems = getLocalStorage("compare_items");
     },
   },

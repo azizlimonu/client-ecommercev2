@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getLocalStorage, setLocalStorage } from "@/libs/LocalStorage";
 import { notifyError, notifySuccess } from "@/libs/Toast";
-import { Product } from "@/libs/types";
+import { Product } from "@/libs/Types";
 
 interface WishlistState {
   wishlist: Product[];
@@ -34,7 +34,7 @@ export const wishlistSlice = createSlice({
       setLocalStorage("wishlist_items", state.wishlist);
       notifyError(`${payload.title} removed from wishlist`);
     },
-    get_wishlist_products: (state, { payload }) => {
+    get_wishlist_products: (state) => {
       state.wishlist = getLocalStorage("wishlist_items");
     },
   },
@@ -45,4 +45,5 @@ export const {
   remove_wishlist_product,
   get_wishlist_products,
 } = wishlistSlice.actions;
+
 export default wishlistSlice.reducer;
